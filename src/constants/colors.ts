@@ -1,0 +1,18 @@
+export const COLORS = {
+  purple: "#A162F7",
+  soft_pink_red: "#FF7E86",
+  vibrant_yellow: "#F6CC0D",
+  gainsboro_gray: "#F4F5F9",
+  charcoal_gray: "#2F2F2F",
+  vivid_orange: "#FF764C",
+  medium_sea_green: "#4CAF50",
+  dark_charcoal_a: "#333",
+  light_coral_red: "#FF6370",
+  light_gray: "#F2F2F2",
+  dark_charcoal_b: "#282B32",
+  vivid_blue: "#2884FF",
+  light_indigo: "#8884D8",
+  pure_white: "#FFFFFF",
+  light_sky_blue: "#549CFD",
+  charcoal_dark: "#374151",
+};
