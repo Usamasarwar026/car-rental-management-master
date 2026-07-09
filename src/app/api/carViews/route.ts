@@ -12,7 +12,7 @@ export const POST = async (req: Request) => {
       });
     }
 
-    await prisma.addCar.update({
+    await prisma.vehicle.update({
       where: { id },
       data: { views: { increment: 1 } },
     });
