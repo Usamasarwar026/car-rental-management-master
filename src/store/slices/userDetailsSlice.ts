@@ -18,21 +18,19 @@ export const fetchUserDetails = createAsyncThunk(
     } catch {
       rejectWithValue("Failed to fetch user details");
     }
-  }
+  },
 );
 
 export const updateUser = createAsyncThunk(
   "userDetails/updateUser",
   async (updatedData: Partial<userDetailsProps>, { rejectWithValue }) => {
     try {
-      console.log("user updated",updatedData)
       const response = await axiosInstance.put("/getUserDetails", updatedData);
-      console.log("response",response)
       return response.data.user;
     } catch {
       return rejectWithValue("Failed to update user details");
     }
-  }
+  },
 );
 
 export const userDetailsSlice = createSlice({

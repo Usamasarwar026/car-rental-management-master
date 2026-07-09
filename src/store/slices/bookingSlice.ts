@@ -25,7 +25,7 @@ export const createBooking = createAsyncThunk(
   "booking/createBooking",
   async (bookingData: any, { rejectWithValue }) => {
     try {
-      console.log("booking data",bookingData);
+      
       const response = await axiosInstance.post("/booking", bookingData);
       return response.data;
     } catch (error: any) {

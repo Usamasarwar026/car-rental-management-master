@@ -15,16 +15,13 @@ export const addCar = createAsyncThunk(
   "CarCrud/add",
   async (carData: carStateTypes, { rejectWithValue }) => {
     try {
-      console.log("data==>",carData)
       const formattedCarState = {
         ...carData,
         engine: carData.engineType.toUpperCase(),
         transmission: carData.transmissionType.toUpperCase(),
         carType: carData.carType.toUpperCase(),
       };
-      console.log("formattedCarState==>", formattedCarState);
       const response = await axiosInstance.post("/carCrud", formattedCarState);
-      console.log("response",response)
       return response.data;
     } catch (error) {
       const axiosError = error as AxiosError;

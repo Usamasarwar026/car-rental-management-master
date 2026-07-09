@@ -22,21 +22,12 @@ const useAddCar = () => {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      //  if (file.size > 5 * 1024 * 1024) {
-      //   toast.error("Image size must be less than 5MB");
-      //   return;
-      // }
-      // if (!file.type.startsWith("image/")) {
-      //   toast.error("Please select a valid image file (JPEG/PNG)");
-      //   return;
-      // }
+      
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = () => {
         setImage(reader.result as string);
-        // const base64 = reader.result as string;
-        // console.log("Base64 image length:", base64.length);
-        // setImage(base64);
+       
       };
     }
   };
@@ -59,7 +50,7 @@ const useAddCar = () => {
         description,
         image,
       };
-      console.log("car data", carData);
+    
 
       await dispatch(addCar(carData)).unwrap();
 

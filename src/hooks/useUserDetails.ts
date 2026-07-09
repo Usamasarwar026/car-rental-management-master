@@ -62,7 +62,6 @@ const useUserDetails = () => {
         dateOfBirth: dateOfBirth || undefined,
         gender,
       };
-      console.log("new data",updatedData);
 
       if (profilePhoto && profilePhoto !== userDetails?.profilePhoto) {
         updatedData.profilePhoto = profilePhoto;

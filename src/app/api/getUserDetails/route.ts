@@ -92,7 +92,6 @@ export const PUT = async (req: Request) => {
       { status: 200 }
     );
   } catch (error) {
-    console.log("update profile",error)
     return NextResponse.json(
       {
         success: false,

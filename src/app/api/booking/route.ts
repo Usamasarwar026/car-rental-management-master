@@ -10,8 +10,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log("Booking request body:", body);
-
     if (!body || typeof body !== "object") {
       return NextResponse.json(
         { success: false, message: "Invalid payload received" },
@@ -197,7 +195,6 @@ export async function GET(req: Request) {
         },
       },
     });
-    console.log("booking",bookings)
 
     return NextResponse.json(
       { success: true, data: bookings },

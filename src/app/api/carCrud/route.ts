@@ -11,7 +11,7 @@ cloudinary.config({
 });
 
 export const POST = async (req: Request) => {
-  console.log("Received POST request to /carCrud");
+ 
   try {
     const {
       brand,
@@ -27,19 +27,9 @@ export const POST = async (req: Request) => {
       image,
     } = await req.json();
 
-    // console.log("Image:", image);
-    console.log("Brand:", brand);
-    console.log("Car Name:", carName);
-    console.log("Model:", model);
-    console.log("Mileage:", mileage);
-    console.log("Engine:", engine);
-    console.log("Transmission:", transmission);
-    console.log("Car Type:", carType);
-    console.log("Price:", price);
-    console.log("Description:", description);
+   
 
     const session = await getServerSession(authOptions);
-    console.log("session",session)
     if (!session) {
       return NextResponse.json({
         success: false,

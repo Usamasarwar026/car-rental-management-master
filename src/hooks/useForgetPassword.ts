@@ -1,5 +1,5 @@
 import { userForgetPassword, userNewPassword } from "@/store/slices/authSlice";
-import { useAppDispatch, useAppSelector } from "@/store/slices/store";
+import { useAppDispatch } from "@/store/slices/store";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -15,21 +15,24 @@ const useForgetPassword = () => {
   const params = searchParams.get("token");
 
   const dispatch = useAppDispatch();
-  const { error } = useAppSelector((state) => state.authStore);
   const router = useRouter();
 
   const handleForgetPass = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setForgetError(null);
     try {
       await dispatch(userForgetPassword(email)).unwrap();
-
       toast.info("Please check your email!");
       setEmail("");
       router.push("/auth/login");
-    } catch {
-      setForgetError(error);
-      toast.error(error);
+    } catch (err: unknown) {
+      const message =
+        typeof err === "string"
+          ? err
+          : "Something went wrong. Please try again.";
+      setForgetError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }

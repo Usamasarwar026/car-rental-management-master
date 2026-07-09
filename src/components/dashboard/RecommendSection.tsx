@@ -7,7 +7,6 @@ import useBooking from "@/hooks/useBooking";
 
 const RecommendSection = () => {
   const topViewedCars = usePopularCars();
-  console.log("topViewedCars:>>", topViewedCars);
   const { clickeViewsHandler } = useBooking();
 
   const bgColors = ["bg-soft_beige", "bg-pale_blue_gray", "bg-light_rose_pink"];

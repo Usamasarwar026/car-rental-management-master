@@ -1,5 +1,4 @@
 {
-    "cSpell.words": [
-        "NEXTAUTH"
-    ]
+  "cSpell.words": ["NEXTAUTH"],
+  "prisma.pinToPrisma6": true
 }

@@ -37,7 +37,6 @@ export async function GET(req: Request) {
       },
     });
 
-    console.log(JSON.stringify(bookings, null, 2));
     return NextResponse.json(
       { success: true, data: bookings },
       { status: 200 }

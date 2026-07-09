@@ -17,4 +17,5 @@ export const IMAGES = {
   BLOOD_ICON: "/icons/blood-icon.png",
   TIER_ICON: "/icons/tier-icon.png",
   SERVICE_ICON_CARD: "/icons/service-icon-card.png",
+  
 };

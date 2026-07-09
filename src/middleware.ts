@@ -8,7 +8,7 @@ export default withAuth(
     if (!user || !user.role) {
       return NextResponse.json(
         { success: false, message: "Unauthorized" },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -39,7 +39,7 @@ export default withAuth(
     callbacks: {
       authorized: ({ token }) => !!token,
     },
-  }
+  },
 );
 
 export const config = {

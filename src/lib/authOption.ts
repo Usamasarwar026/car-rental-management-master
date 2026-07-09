@@ -121,7 +121,6 @@ export const authOptions: AuthOptions = {
         token.image = user.image;
         token.role = user.role ?? "USER";
       }
-      // console.log("token-->",token)
       return token;
     },
 
@@ -133,7 +132,6 @@ export const authOptions: AuthOptions = {
         session.user.image = token.image as string;
         session.user.role = token.role as "ADMIN" | "USER";
       }
-      console.log("session",session)
       return session;
     },
   },

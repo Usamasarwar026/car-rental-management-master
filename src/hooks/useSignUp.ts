@@ -30,19 +30,16 @@ const useSignUp = () => {
     }
     setLoading(true);
 
-    console.log("Step 5: Dispatching userSignUp action");
     try {
-      const result = await dispatch(
+       await dispatch(
         userSignUp({ firstName, lastName, email, password })
       ).unwrap();
-      console.log("Step 5: Signup successful:", result);
       toast.success("You are registerd successfully");
       router.replace("/auth/login");
     } catch (err) {
       setAuthError(err as string);
     } finally {
       setLoading(false);
-      console.log("Step 8: Loading reset, final authError:", authError);
     }
   };
 

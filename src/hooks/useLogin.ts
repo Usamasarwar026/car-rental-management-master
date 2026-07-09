@@ -10,9 +10,6 @@ const useLogin = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const router = useRouter();
-  const { data: session, status } = useSession();
-
-  console.log("Step 0: Session state", { session, status });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

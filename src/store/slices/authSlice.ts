@@ -59,7 +59,6 @@ export const userForgetPassword = createAsyncThunk(
       return response.data;
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
-        console.log("error-forget",error)
         return rejectWithValue(
           error.response?.data?.message ||
             "Error sending reset password email. Please try again later."
@@ -122,7 +121,6 @@ export const getAllUsers = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axiosInstance.get("/allUsers");
-      console.log("user data fetch",response.data.users)
       return response.data.users;
     } catch (error) {
       if (axios.isAxiosError(error)) {

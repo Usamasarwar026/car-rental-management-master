@@ -15,11 +15,13 @@ export const POST = async (req: Request) => {
     });
 
     if (!compareEmail) {
-      return NextResponse.json({
-        success: false,
-        status: 404,
-        message: "User not found",
-      });
+      return NextResponse.json(
+        {
+          success: false,
+          message: "User not found",
+        },
+        { status: 404 },
+      );
     }
 
     const resetToken = crypto.randomBytes(10).toString("hex");
@@ -54,25 +56,30 @@ export const POST = async (req: Request) => {
 
     const sendMail = await transporter.sendMail(mailOptions);
     if (!sendMail) {
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "something wrong in sending email",
-      });
+      return NextResponse.json(
+        {
+          success: false,
+          message: "something wrong in sending email",
+        },
+        { status: 404 },
+      );
     }
 
-    return NextResponse.json({
-      success: true,
-      status: 200,
-      message: "Request successful",
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Request successful",
+      },
+      { status: 200 },
+    );
   } catch (error) {
+    console.error("forgetPassword error:", error);
     return NextResponse.json(
       {
         success: false,
         message: error instanceof Error ? error.message : "An error occurred",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 };
@@ -96,7 +103,7 @@ export const PUT = async (req: Request) => {
     ) {
       return NextResponse.json(
         { success: false, message: "Invalid or expired token" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -107,7 +114,7 @@ export const PUT = async (req: Request) => {
           success: false,
           message: "New password cannot be the same as the old one",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -122,7 +129,7 @@ export const PUT = async (req: Request) => {
 
     return NextResponse.json(
       { success: true, message: "Password updated successfully" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     return NextResponse.json(
@@ -130,7 +137,7 @@ export const PUT = async (req: Request) => {
         success: false,
         message: error instanceof Error ? error.message : "An error occurred",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 };
